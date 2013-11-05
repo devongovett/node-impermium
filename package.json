@@ -13,5 +13,8 @@
   "bugs": "http://github.com/devongovett/node-impermium/issues",
   "dependencies": {
     "superagent": "~0.15.7"
+  },
+  "scripts": {
+    "test": "node test.js"
   }
 }
