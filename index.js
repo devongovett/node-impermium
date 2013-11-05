@@ -11,8 +11,14 @@ exports.request = function(api, params, fn) {
     var req = params.req;
     params.http_headers = req.headers;
     params.enduser_ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || '127.0.0.1';
+    
+    // imperium doesn't like localhost
+    if (params.enduser_ip == '127.0.0.1')
+      delete params.enduser_ip;
+      
+    delete params.req;
   }
-  
+    
   if (!params.user_id) {
     params.user_id = 'ANONYMOUS';
   }
