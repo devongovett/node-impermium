@@ -1,0 +1,17 @@
+{
+  "name": "impermium",
+  "version": "0.1.0",
+  "description": "An API client for impermium",
+  "author": {
+    "name": "Devon Govett",
+    "email": "devongovett@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devongovett/node-impermium.git"
+  },
+  "bugs": "http://github.com/devongovett/node-impermium/issues",
+  "dependencies": {
+    "superagent": "~0.15.7"
+  }
+}
