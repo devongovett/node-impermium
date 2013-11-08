@@ -10,7 +10,12 @@ exports.request = function(api, params, fn) {
   if (params.req) {
     var req = params.req;
     params.http_headers = req.headers;
-    params.enduser_ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || '127.0.0.1';
+    
+    // extract the first IP address from the list of proxies to get the original IP
+    if (req.headers['x-forwarded-for'])
+      params.enduser_ip = req.headers['x-forwarded-for'].split(',')[0].trim();
+    else
+      params.enduser_ip = req.connection.remoteAddress;
     
     // imperium doesn't like localhost
     if (params.enduser_ip == '127.0.0.1')
